@@ -12,7 +12,7 @@ def pencilSketch(input_image):
 
     data = np.float32(color).reshape((-1, 3))
     criteria = (cv2.TERM_CRITERIA_EPS + cv2.TERM_CRITERIA_MAX_ITER, 7, 0.1)
-    ret, label, center = cv2.kmeans(data, 43, None, criteria, 10, cv2.KMEANS_RANDOM_CENTERS)
+    ret, label, center = cv2.kmeans(data, 2, None, criteria, 10, cv2.KMEANS_RANDOM_CENTERS)
     center = np.uint8(center)
     result = center[label.flatten()]
     result = result.reshape(input_image.shape)
