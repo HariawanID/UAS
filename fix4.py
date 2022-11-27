@@ -11,7 +11,7 @@ def pencilSketch(input_image):
     # cartoon = cv2.bitwise_and(color, color, mask=edges)
 
     data = np.float32(color).reshape((-1, 3))
-    criteria = (cv2.TERM_CRITERIA_EPS + cv2.TERM_CRITERIA_MAX_ITER, 100, 0.1)
+    criteria = (cv2.TERM_CRITERIA_EPS + cv2.TERM_CRITERIA_MAX_ITER, 14, 0.1)
     ret, label, center = cv2.kmeans(data, 37, None, criteria, 10, cv2.KMEANS_RANDOM_CENTERS)
     center = np.uint8(center)
     result = center[label.flatten()]
